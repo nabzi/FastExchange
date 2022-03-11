@@ -7,42 +7,39 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textViewEUR"
+        android:id="@+id/textViewCurrencyType1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        tools:text="1000.0EUR"
-        android:text="EUR"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUSD"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCurrencyType2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:text="1000.0EUR" />
 
     <TextView
-        android:id="@+id/textViewUSD"
+        android:id="@+id/textViewCurrencyType2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="USD"
-        app:layout_constraintEnd_toStartOf="@+id/textViewBGN"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCurrencyType3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewEUR"
-        app:layout_constraintTop_toTopOf="@+id/textViewEUR"
+        app:layout_constraintStart_toEndOf="@+id/textViewCurrencyType1"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrencyType1"
         tools:text="0 USD" />
 
     <TextView
-        android:id="@+id/textViewBGN"
+        android:id="@+id/textViewCurrencyType3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         tools:text="0 BGN"
-        android:text="BGN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewUSD"
-        app:layout_constraintTop_toTopOf="@+id/textViewEUR" />
+        app:layout_constraintStart_toEndOf="@+id/textViewCurrencyType2"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrencyType1" />
 
     <TextView
         android:id="@+id/textView4"
@@ -61,7 +58,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/currency_exchange"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEUR" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyType1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
