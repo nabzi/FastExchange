@@ -8,7 +8,7 @@ import ir.sample.fastexchange.R
 import ir.sample.fastexchange.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    val exchangeViewModel: ExchangeViewModel by viewModels()
+    private val exchangeViewModel: ExchangeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(
