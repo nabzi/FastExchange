@@ -14,7 +14,7 @@
 
 android:layout_height="match_parent"
 android:layout_width="match_parent"
-tools:context=".MainActivity">
+tools:context=".ui.MainActivity">
 
 <TextView
     android:id="@+id/textViewCurrencyType1"
@@ -85,17 +85,17 @@ tools:context=".MainActivity">
     app:layout_constraintTop_toBottomOf="@+id/textView5"
     app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:backgroundTint="@color/green"
-    android:clickable="false"
-    android:id="@+id/floatingActionButton2"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="2dp"
-    android:layout_marginTop="12dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
-    app:layout_constraintTop_toBottomOf="@+id/floatingActionButton"
-    app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/green"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton"
+        app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
 
 <TextView
     android:id="@+id/textView7"
@@ -138,17 +138,21 @@ tools:context=".MainActivity">
 
 <Spinner
     android:id="@+id/spinnerSellType"
-    android:layout_height="28dp"
+    android:layout_height="wrap_content"
     android:layout_marginStart="32dp"
-    android:layout_width="64dp"
+    android:layout_width="wrap_content"
+    app:currencyTypes="@{vmodel.currencyTypes}"
+    app:spinnerIndex="@{0}"
     app:layout_constraintBottom_toBottomOf="@+id/textView7"
     app:layout_constraintStart_toEndOf="@+id/editTextSell"
     app:layout_constraintTop_toTopOf="@+id/textView7" />
 
 <Spinner
     android:id="@+id/spinnerReceiveType"
-    android:layout_height="28dp"
-    android:layout_width="64dp"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    app:currencyTypes="@{vmodel.currencyTypes}"
+    app:spinnerIndex="@{1}"
     app:layout_constraintBottom_toBottomOf="@+id/textView8"
     app:layout_constraintStart_toStartOf="@+id/spinnerSellType"
     app:layout_constraintTop_toTopOf="@+id/textView8" />
