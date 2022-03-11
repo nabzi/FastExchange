@@ -7,7 +7,7 @@
 
         <variable
             name="vmodel"
-            type="ir.sample.fastexchange.ExchangeViewModel" />
+            type="ir.sample.fastexchange.ui.ExchangeViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
