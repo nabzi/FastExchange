@@ -6,12 +6,12 @@ import ir.sample.fastexchange.model.Balance
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class ExchangeViewModel : ViewModel() {
+class ExchangeViewModel(balanceRepository: BalanceRepository) : ViewModel() {
     private val _balanceList = MutableStateFlow<ArrayList<Balance>>(arrayListOf())
     val balanceList: StateFlow<ArrayList<Balance>> = _balanceList
 
     init {
-        _balanceList.value = BalanceRepository.loadBalanceList()
+        _balanceList.value = balanceRepository.loadBalanceList()
     }
 
     fun currencyTypes() =
