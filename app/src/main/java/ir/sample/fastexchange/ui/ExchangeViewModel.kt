@@ -48,7 +48,7 @@ class ExchangeViewModel(
         )
     }
 
-    fun getTheReceivedAmount(
+    private fun getTheReceivedAmount(
         sourceCurrencyCode: String,
         destinationCurrencyCode: String,
         amount: Double
