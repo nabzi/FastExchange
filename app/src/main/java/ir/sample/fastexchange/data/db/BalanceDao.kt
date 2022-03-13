@@ -10,18 +10,15 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 abstract class BalanceDao {
 
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    abstract suspend fun add(vararg balance: Balance):Void
-//
-////    @Insert(onConflict = OnConflictStrategy.REPLACE)
-////    abstract suspend fun addList(list: List<Balance>)
-//
-//    @Query("SELECT * FROM balance" )
-//    abstract fun getBalances(): Flow<List<Balance>>//List<Balance>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun add( vararg balance: Balance):Void
 
-//    @Query("SELECT * FROM balance " )
-//    abstract fun getBalanceFlow(): List<Balance>
+    @Query("SELECT * FROM balance" )
+    abstract fun getBalancesFlow(): Flow<List<Balance>>
 
-//    @Query("Delete From balance" )
-//    abstract suspend fun removeAll() : Int
+    @Query("SELECT * FROM balance " )
+    abstract fun getBalanceFlow(): List<Balance>
+
+    @Query("Delete From balance" )
+    abstract suspend fun removeAll() : Int
 }
