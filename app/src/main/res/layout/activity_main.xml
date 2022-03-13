@@ -4,170 +4,184 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vmodel"
             type="ir.sample.fastexchange.ui.ExchangeViewModel" />
+
+        <import type="android.view.View" />
     </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
 
-android:layout_height="match_parent"
-android:layout_width="match_parent"
-tools:context=".ui.MainActivity">
+        <TextView
+            android:id="@+id/textViewCurrencyType1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@{`` + vmodel.balanceList[0].amount +` `+ vmodel.balanceList[0].type.currencyCode.toString()}"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCurrencyType2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:text="1000.0EUR" />
 
-<TextView
-    android:id="@+id/textViewCurrencyType1"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="24dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintEnd_toStartOf="@+id/textViewCurrencyType2"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView4"
-    android:text="@{`` + vmodel.balanceList[0].amount +` `+ vmodel.balanceList[0].type.currencyCode.toString()}"
-    tools:text="1000.0EUR" />
+        <TextView
+            android:id="@+id/textViewCurrencyType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{`` + vmodel.balanceList[1].amount +` `+ vmodel.balanceList[1].type.currencyCode.toString()}"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCurrencyType3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCurrencyType1"
+            app:layout_constraintTop_toTopOf="@+id/textViewCurrencyType1"
+            tools:text="0 USD" />
 
-<TextView
-    android:id="@+id/textViewCurrencyType2"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintEnd_toStartOf="@+id/textViewCurrencyType3"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/textViewCurrencyType1"
-    app:layout_constraintTop_toTopOf="@+id/textViewCurrencyType1"
-    android:text="@{`` + vmodel.balanceList[1].amount +` `+ vmodel.balanceList[1].type.currencyCode.toString()}"
-    tools:text="0 USD" />
+        <TextView
+            android:id="@+id/textViewCurrencyType3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{`` + vmodel.balanceList[2].amount +` `+ vmodel.balanceList[2].type.currencyCode.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCurrencyType2"
+            app:layout_constraintTop_toTopOf="@+id/textViewCurrencyType1"
+            tools:text="0 BGN" />
 
-<TextView
-    android:id="@+id/textViewCurrencyType3"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/textViewCurrencyType2"
-    app:layout_constraintTop_toTopOf="@+id/textViewCurrencyType1"
-    android:text="@{`` + vmodel.balanceList[2].amount +` `+ vmodel.balanceList[2].type.currencyCode.toString()}"
-    tools:text="0 BGN" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/my_balances"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/textView4"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_width="wrap_content"
-    android:text="@string/my_balances"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/currency_exchange"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyType1" />
 
-<TextView
-    android:id="@+id/textView5"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:layout_width="wrap_content"
-    android:text="@string/currency_exchange"
-    app:layout_constraintStart_toStartOf="@+id/textView4"
-    app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyType1" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/red"
+            android:clickable="false"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:backgroundTint="@color/red"
-    android:clickable="false"
-    android:id="@+id/floatingActionButton"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="30dp"
-    android:layout_marginTop="16dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintStart_toStartOf="@+id/textView5"
-    app:layout_constraintTop_toBottomOf="@+id/textView5"
-    app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/green"
+            android:clickable="false"
+            app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+            app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+            app:layout_constraintTop_toBottomOf="@+id/floatingActionButton"
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/green"
-        android:clickable="false"
-        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
-        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
-        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton"
-        app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/sell"
+            app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
+            app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+            app:layout_constraintTop_toTopOf="@+id/floatingActionButton" />
 
-<TextView
-    android:id="@+id/textView7"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:layout_width="wrap_content"
-    android:text="@string/sell"
-    app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
-    app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
-    app:layout_constraintTop_toTopOf="@+id/floatingActionButton" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/receive"
+            app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton2"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/floatingActionButton2" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/receive"
-        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton2"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/floatingActionButton2" />
+        <EditText
+            android:id="@+id/editTextSell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:inputType="number"
+            android:lines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            tools:text="-1000" />
 
-<EditText
-    android:id="@+id/editTextSell"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintBottom_toBottomOf="@+id/textView7"
-    app:layout_constraintStart_toEndOf="@+id/textView7"
-    app:layout_constraintTop_toTopOf="@+id/textView7"
-    tools:text="-1000" />
+        <TextView
+            android:id="@+id/textViewReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="@{`` + vmodel.receivedAmount}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/editTextSell"
+            app:layout_constraintTop_toTopOf="@+id/textView8"
+            tools:text="+1100" />
 
-<TextView
-    android:id="@+id/textViewReceived"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:textColor="@color/green"
-    app:layout_constraintBottom_toBottomOf="@+id/textView8"
-    app:layout_constraintStart_toStartOf="@+id/editTextSell"
-    app:layout_constraintTop_toTopOf="@+id/textView8"
-    tools:text="+1100" />
+        <Spinner
+            android:id="@+id/spinnerSellType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:currencyTypes="@{vmodel.currencyTypes}"
+            android:selectedItemPosition="@{vmodel.sourceCurrencyIndex}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/editTextSell"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
 
-<Spinner
-    android:id="@+id/spinnerSellType"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_width="wrap_content"
-    app:currencyTypes="@{vmodel.currencyTypes}"
-    app:spinnerIndex="@{0}"
-    app:layout_constraintBottom_toBottomOf="@+id/textView7"
-    app:layout_constraintStart_toEndOf="@+id/editTextSell"
-    app:layout_constraintTop_toTopOf="@+id/textView7" />
 
-<Spinner
-    android:id="@+id/spinnerReceiveType"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    app:currencyTypes="@{vmodel.currencyTypes}"
-    app:spinnerIndex="@{1}"
-    app:layout_constraintBottom_toBottomOf="@+id/textView8"
-    app:layout_constraintStart_toStartOf="@+id/spinnerSellType"
-    app:layout_constraintTop_toTopOf="@+id/textView8" />
+        <Spinner
+            android:id="@+id/spinnerReceiveType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:currencyTypes="@{vmodel.currencyTypes}"
+            android:selectedItemPosition="@{vmodel.destCurrencyIndex}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/spinnerSellType"
+            app:layout_constraintTop_toTopOf="@+id/textView8"
+            />
 
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/buttonSubmit"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="24dp"
-    android:layout_marginEnd="24dp"
-    android:layout_marginStart="24dp"
-    android:layout_width="0dp"
-    android:text="@string/submit"
-    app:cornerRadius="30dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/submit"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/floatingActionButton2"
+            app:layout_constraintVertical_bias="1.0" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 </layout>
