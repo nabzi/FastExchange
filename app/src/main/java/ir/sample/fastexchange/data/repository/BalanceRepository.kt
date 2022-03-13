@@ -2,34 +2,26 @@ package ir.sample.fastexchange.data.repository
 
 import ir.sample.fastexchange.data.db.BalanceDao
 import ir.sample.fastexchange.model.Balance
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import java.util.*
-import kotlin.collections.ArrayList
+import kotlinx.coroutines.withContext
 
 class BalanceRepositoryImpl(private val dbDataSource: BalanceDBDataSource) : BalanceRepository {
-
+    override suspend fun addAll(balances: List<Balance>) = dbDataSource.addAll(balances)
+    override fun getBalances(): Flow<List<Balance>> = dbDataSource.getBalances()
+    override suspend fun clear() = dbDataSource.clear()
 }
 
 interface BalanceRepository {
-    fun loadBalanceList(): ArrayList<Balance> {
-        return arrayListOf(
-            Balance(Currency.getInstance("EUR"), 1000.0),
-            Balance(Currency.getInstance("USD"), 0.0),
-            Balance(Currency.getInstance("BGP"), 0.0)
-        )
-    }
+    suspend fun addAll(balances: List<Balance>): Void
+    fun getBalances(): Flow<List<Balance>>
+    suspend fun clear(): Int
 }
 
 class BalanceDBDataSource(private val balanceDao: BalanceDao) {
-    suspend fun update(result: List<Balance>) {
-        //BalanceDao.addList(result)
-    }
+    suspend fun addAll(balances: List<Balance>) =
+        withContext(Dispatchers.IO) { balanceDao.addAll(balances) }
 
-    suspend fun clear() {
-        // BalanceDao.removeAll()
-    }
-
-//    fun getBalances(search: String): Flow<List<Balance>> {
-//        //return BalanceDao.getBalancesFlow("$search%")
-//    }
+    suspend fun clear() = balanceDao.removeAll()
+    fun getBalances(): Flow<List<Balance>> = balanceDao.getBalances()
 }

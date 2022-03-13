@@ -15,5 +15,6 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main
         )
         binding.vmodel = exchangeViewModel
+        binding.lifecycleOwner = this
     }
 }
