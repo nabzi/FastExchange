@@ -6,8 +6,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "http://api.exchangeratesapi.io/latest?access_key=2199a3331c976c2a3c03fcb0852b8b14"
-const val API_KEY = ""
+const val BASE_URL = "http://api.exchangeratesapi.io/"
+const val API_KEY = "2199a3331c976c2a3c03fcb0852b8b14"
 
 fun createHttpClient(): OkHttpClient {
     val okHttpClientBuilder = OkHttpClient.Builder()
